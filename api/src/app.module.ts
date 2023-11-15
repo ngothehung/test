@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { BackendModule } from './backend/backend.module';
+import { FrontendModule } from './frontend/frontend.module';
 import { ConfigModule } from "@nestjs/config";
 import { DatabaseModule } from './database/database.module';
+import { UploadModule } from './upload/upload.module';
 import * as Joi from '@hapi/joi';
 import { ExceptionsLoggerFilter } from "./utils/exceptionsLogger.filter";
 import { APP_FILTER } from "@nestjs/core";
@@ -20,6 +22,7 @@ import { HttpModule } from "@nestjs/axios";
             }),
         }),
         BackendModule,
+        FrontendModule,
         DatabaseModule,
         ConfigModule.forRoot({
             validationSchema: Joi.object({
@@ -32,6 +35,7 @@ import { HttpModule } from "@nestjs/axios";
                 UPLOADED_FILES_DESTINATION: Joi.string().required()
             }),
         }),
+        UploadModule
     ],
     controllers: [AppController],
     providers: [
