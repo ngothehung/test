@@ -3,7 +3,8 @@ import { JwtAuthGuard } from "../../auth/jwt-auth.guard";
 import { Paging } from "../../common/response/Paging";
 import { ResponseData } from "../../common/response/ResponseData";
 import { CommentService } from "./comment.service";
-
+import CreateVoteDto from "../vote/dto/CreateVote.dto";
+import UpdateVoteDto from "../vote/dto/UpdateVote.dto";
 import { ApiTags } from "@nestjs/swagger";
 import CreateCommentDto from "./dto/CreateComment.dto";
 import UpdateCommentDto from "./dto/UpdateComment.dto";
